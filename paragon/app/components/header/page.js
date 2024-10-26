@@ -10,6 +10,7 @@ export default function Header() {
             width={100}
             height={100}
             alt="Picture of the author"
+            quality={100}
           />
         </Link>
       </div>
@@ -33,6 +34,9 @@ export default function Header() {
             </li>
             <li>
               <Link href="/components/news">News</Link>
+            </li>
+            <li>
+              <Link href="/components/blogs">Blogs</Link>
             </li>
           </ul>
         </nav>
