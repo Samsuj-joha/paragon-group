@@ -4,16 +4,21 @@ export default function Header() {
   return (
     <div className="flex justify-between pb-5">
       <div>
-        <Image
-          src="/paragongroup-logo.png"
-          width={100}
-          height={100}
-          alt="Picture of the author"
-        />
+        <Link href="/">
+          <Image
+            src="/paragongroup-logo.png"
+            width={100}
+            height={100}
+            alt="Picture of the author"
+          />
+        </Link>
       </div>
       <div>
         <nav>
           <ul className="flex gap-5">
+            <li>
+              <Link href="/">MainHome</Link>
+            </li>
             <li>
               <Link href="/components/home">Home</Link>
             </li>
