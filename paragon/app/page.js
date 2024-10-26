@@ -1,13 +1,13 @@
 import React from 'react'
+import HeroPage from './components2/heroPage/page'
 
-const Home = () => {
+
+const MainHome = () => {
   return (
     <div>
-      <h1>this is my first page</h1>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, ipsum.</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, libero.</p>
+      <HeroPage/>
     </div>
   )
 }
 
-export default Home
+export default MainHome
