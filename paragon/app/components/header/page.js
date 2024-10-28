@@ -38,6 +38,9 @@ export default function Header() {
             <li>
               <Link href="/components/blogs">Blogs</Link>
             </li>
+            <li>
+              <Link href="/login">Login</Link>
+            </li>
           </ul>
         </nav>
       </div>
