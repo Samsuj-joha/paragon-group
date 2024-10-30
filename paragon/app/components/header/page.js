@@ -21,6 +21,7 @@ const navigation = [
   { name: "Contact", href: "/components/contact" },
   { name: "Career", href: "/components/career" },
   { name: "News", href: "/components/news" },
+  { name: "Login", href: "/login" },
 ];
 
 export default function Header() {
