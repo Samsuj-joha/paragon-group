@@ -1,11 +1,28 @@
-"use client"
+"use client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Home() {
   const [user, setUser] = useState("User");
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    { id: 1, name: "Alice", feedback: "Great service and quality!" },
+    { id: 2, name: "Bob", feedback: "Amazing product variety!" },
+    { id: 3, name: "Charlie", feedback: "Exceptional customer support!" },
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   const products = [
     { title: "Product 1", description: "High-quality product 1", price: "$25" },
     { title: "Product 2", description: "High-quality product 2", price: "$40" },
@@ -14,6 +31,23 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-6">
+      {/* Testimonial Carousel */}
+      <div className="bg-gray-100 p-6 rounded-lg mb-8 text-center">
+        <h2 className="text-xl font-semibold mb-4">Testimonials</h2>
+        <div className="flex justify-between items-center">
+          <Button onClick={prevTestimonial} variant="ghost" size="icon">
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+          <div>
+            <p className="text-lg font-medium">"{testimonials[currentTestimonial].feedback}"</p>
+            <p className="text-sm mt-2 text-gray-500">- {testimonials[currentTestimonial].name}</p>
+          </div>
+          <Button onClick={nextTestimonial} variant="ghost" size="icon">
+            <ChevronRight className="h-5 w-5" />
+          </Button>
+        </div>
+      </div>
+
       {/* Card Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {products.map((product, index) => (
