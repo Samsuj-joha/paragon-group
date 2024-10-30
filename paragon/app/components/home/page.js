@@ -1,34 +1,50 @@
-"use client";
-
+"use client"
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 
 export default function Home() {
-  const [user, setUser] = useState(null);
-  const router = useRouter();
-
-  const handleLogout = () => {
-    Cookies.remove("auth_token");
-    router.push("/login");
-  };
+  const [user, setUser] = useState("User");
+  const products = [
+    { title: "Product 1", description: "High-quality product 1", price: "$25" },
+    { title: "Product 2", description: "High-quality product 2", price: "$40" },
+    { title: "Product 3", description: "High-quality product 3", price: "$15" },
+  ];
 
   return (
-    <div>
-      <h1>Home Page</h1>
-      <div>
-        <p>Welcome, {user}!</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ut
-          harum quia a aliquid, numquam sequi atque quo libero quibusdam.
-        </p>
+    <div className="container mx-auto p-6">
+      {/* Card Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {products.map((product, index) => (
+          <Card key={index} className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle>{product.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>{product.description}</p>
+              <p className="text-xl font-semibold">{product.price}</p>
+              <Button className="mt-4 w-full bg-primary text-white">Add to Cart</Button>
+            </CardContent>
+          </Card>
+        ))}
       </div>
-      <button
-        onClick={handleLogout}
-        className="bg-red-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300 mt-3"
-      >
-        Logout
-      </button>
+
+      {/* Subscribe Section */}
+      <div className="mt-12 p-6 bg-secondary rounded-lg text-center">
+        <h2 className="text-2xl font-bold mb-2">Subscribe to Our Newsletter</h2>
+        <p className="text-muted-foreground mb-4">
+          Get the latest updates on new products and upcoming sales.
+        </p>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            className="max-w-md w-full"
+          />
+          <Button className="bg-primary text-white">Subscribe</Button>
+        </div>
+      </div>
     </div>
   );
 }
