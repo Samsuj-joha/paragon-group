@@ -13,6 +13,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import Home from "../home/page";
 
 const navigation = [
   { name: "MainHome", href: "/" },
@@ -83,6 +84,8 @@ export default function Header() {
           </Sheet>
         </div>
       </div>
+      
     </header>
+   
   );
 }

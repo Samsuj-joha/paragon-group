@@ -65,12 +65,14 @@ export default function Home() {
       </div>
 
       {/* Subscribe Section */}
-      <div className="mt-12 p-6 bg-secondary rounded-lg text-center">
+      <div className="mt-12 p-6 bg-secondary rounded-lg text-center flex justify-between ">
+        <div>
         <h2 className="text-2xl font-bold mb-2">Subscribe to Our Newsletter</h2>
         <p className="text-muted-foreground mb-4">
           Get the latest updates on new products and upcoming sales.
         </p>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+        </div>
+        <div className="flex flex-1 flex-col md:flex-row items-center justify-center gap-4">
           <Input
             type="email"
             placeholder="Enter your email"
